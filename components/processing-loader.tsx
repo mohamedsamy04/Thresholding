@@ -5,7 +5,6 @@ import { motion } from "framer-motion"
 export default function ProcessingLoader() {
   return (
     <div className="relative w-64 h-64">
-      {/* Outer rotating gradient ring */}
       <motion.div
         className="absolute inset-0 rounded-full"
         style={{
@@ -22,7 +21,6 @@ export default function ProcessingLoader() {
         }}
       />
 
-      {/* Inner circle with thresholding visualization */}
       <div className="absolute inset-4 rounded-full overflow-hidden bg-gray-900 flex items-center justify-center">
         <div className="absolute inset-0 grid grid-cols-10 grid-rows-10">
           {Array.from({ length: 100 }).map((_, i) => (
@@ -43,8 +41,6 @@ export default function ProcessingLoader() {
             />
           ))}
         </div>
-
-        {/* Horizontal threshold line */}
         <motion.div
           className="absolute left-0 right-0 h-0.5 bg-blue-500 z-10"
           initial={{ top: 0 }}
@@ -56,8 +52,6 @@ export default function ProcessingLoader() {
           }}
         />
       </div>
-
-      {/* Circular progress indicator */}
       <motion.div
         className="absolute inset-0 rounded-full border-2 border-white/20"
         initial={{ scale: 0.8, opacity: 0 }}
@@ -72,7 +66,6 @@ export default function ProcessingLoader() {
         }}
       />
 
-      {/* Center icon */}
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div
           className="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center shadow-lg"
@@ -113,8 +106,6 @@ export default function ProcessingLoader() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Text indicator */}
       <motion.div
         className="absolute -bottom-16 left-0 right-0 text-center"
         initial={{ opacity: 0 }}

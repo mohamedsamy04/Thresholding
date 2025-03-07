@@ -7,7 +7,7 @@ export default function InitialLoader() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Simulate loading time - in a real app, this would be based on actual resource loading
+
     const timer = setTimeout(() => {
       setLoading(false)
     }, 2500)
@@ -24,7 +24,7 @@ export default function InitialLoader() {
           transition={{ duration: 0.5 }}
         >
           <div className="relative w-80 h-80">
-            {/* Background grid */}
+
             <div className="absolute inset-0 grid grid-cols-10 grid-rows-10 gap-1 opacity-20">
               {Array.from({ length: 100 }).map((_, i) => (
                 <motion.div
@@ -43,7 +43,6 @@ export default function InitialLoader() {
               ))}
             </div>
 
-            {/* Main logo/icon */}
             <motion.div
               className="absolute inset-0 flex items-center justify-center"
               initial={{ scale: 0.8, opacity: 0 }}
@@ -51,7 +50,6 @@ export default function InitialLoader() {
               transition={{ delay: 0.2, duration: 0.5 }}
             >
               <div className="relative w-40 h-40">
-                {/* Circular gradient background */}
                 <motion.div
                   className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-purple-600"
                   animate={{
@@ -64,7 +62,6 @@ export default function InitialLoader() {
                   }}
                 />
 
-                {/* Inner circle with threshold effect */}
                 <div className="absolute inset-4 rounded-full overflow-hidden bg-gray-900 flex items-center justify-center">
                   <motion.div
                     className="w-full h-full bg-gradient-to-r from-gray-400 to-white"
@@ -79,7 +76,6 @@ export default function InitialLoader() {
                     }}
                   />
 
-                  {/* Threshold line */}
                   <motion.div
                     className="absolute left-1/2 top-0 bottom-0 w-1 bg-blue-500"
                     animate={{
@@ -93,7 +89,6 @@ export default function InitialLoader() {
                     }}
                   />
 
-                  {/* Binary pixels */}
                   <div className="absolute inset-0 grid grid-cols-6 grid-rows-6">
                     {Array.from({ length: 36 }).map((_, i) => (
                       <motion.div
@@ -115,7 +110,6 @@ export default function InitialLoader() {
               </div>
             </motion.div>
 
-            {/* Text */}
             <motion.div
               className="absolute bottom-0 left-0 right-0 text-center"
               initial={{ opacity: 0, y: 20 }}

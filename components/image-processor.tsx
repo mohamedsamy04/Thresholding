@@ -44,7 +44,6 @@ export default function ImageProcessor() {
 
     setIsProcessing(true)
 
-    // Simulate processing delay for demonstration
     setTimeout(() => {
       applyThresholding()
       setIsProcessing(false)
@@ -60,28 +59,27 @@ export default function ImageProcessor() {
 
     const img = new Image()
     img.onload = () => {
-      // Set canvas dimensions to match image
+
       canvas.width = img.width
       canvas.height = img.height
 
-      // Draw original image
+
       ctx.drawImage(img, 0, 0)
 
-      // Get image data
+
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
       const data = imageData.data
 
-      // Apply thresholding based on selected method
+
       if (thresholdMethod === "binary") {
-        // Simple binary thresholding
+
         for (let i = 0; i < data.length; i += 4) {
           const avg = (data[i] + data[i + 1] + data[i + 2]) / 3
           const value = avg > threshold ? 255 : 0
           data[i] = data[i + 1] = data[i + 2] = value
         }
       } else if (thresholdMethod === "otsu") {
-        // Simplified Otsu thresholding (normally would calculate optimal threshold)
-        // For demo, we'll use a dynamic threshold based on image average
+
         let sum = 0
         for (let i = 0; i < data.length; i += 4) {
           sum += (data[i] + data[i + 1] + data[i + 2]) / 3
@@ -94,8 +92,7 @@ export default function ImageProcessor() {
           data[i] = data[i + 1] = data[i + 2] = value
         }
       } else if (thresholdMethod === "adaptive") {
-        // Simplified adaptive thresholding
-        // For demo, we'll use a local contrast enhancement
+
         const tempCanvas = document.createElement("canvas")
         const tempCtx = tempCanvas.getContext("2d")
         if (!tempCtx) return
@@ -105,7 +102,7 @@ export default function ImageProcessor() {
         tempCtx.drawImage(img, 0, 0)
         const blurredData = tempCtx.getImageData(0, 0, canvas.width, canvas.height)
 
-        // Apply a simple blur effect for local thresholding
+
         for (let y = 1; y < canvas.height - 1; y++) {
           for (let x = 1; x < canvas.width - 1; x++) {
             const idx = (y * canvas.width + x) * 4
@@ -117,10 +114,8 @@ export default function ImageProcessor() {
         }
       }
 
-      // Put processed image data back to canvas
       ctx.putImageData(imageData, 0, 0)
 
-      // Convert canvas to data URL and set as processed image
       setProcessedImage(canvas.toDataURL(`image/${downloadFormat}`))
     }
 
@@ -137,7 +132,6 @@ export default function ImageProcessor() {
     link.click()
     document.body.removeChild(link)
 
-    // Show success message
     setShowDownloadSuccess(true)
     setTimeout(() => setShowDownloadSuccess(false), 3000)
   }
@@ -206,7 +200,6 @@ export default function ImageProcessor() {
             <span className="block mt-1 text-sm text-gray-500">Supported formats: JPG, PNG, WebP</span>
           </motion.p>
 
-          {/* Animated corner accents */}
           <motion.div
             className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500 opacity-0 group-hover:opacity-100"
             initial={{ x: -10, y: -10 }}

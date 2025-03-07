@@ -6,7 +6,6 @@ export default function PageLoader() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh]">
       <div className="relative w-64 h-64">
-        {/* Animated grid background representing pixels */}
         <div className="absolute inset-0 grid grid-cols-8 grid-rows-8 gap-1">
           {Array.from({ length: 64 }).map((_, i) => (
             <motion.div
@@ -26,8 +25,6 @@ export default function PageLoader() {
             />
           ))}
         </div>
-
-        {/* Circular scanning effect */}
         <motion.div
           className="absolute inset-0 rounded-full border-4 border-white/30"
           style={{ borderRadius: "50%" }}
@@ -43,7 +40,6 @@ export default function PageLoader() {
           }}
         />
 
-        {/* Horizontal scanning line */}
         <motion.div
           className="absolute left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500"
           initial={{ top: 0, opacity: 0.7 }}
@@ -55,7 +51,6 @@ export default function PageLoader() {
           }}
         />
 
-        {/* Vertical scanning line */}
         <motion.div
           className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-blue-500"
           initial={{ left: 0, opacity: 0.7 }}
@@ -68,7 +63,6 @@ export default function PageLoader() {
           }}
         />
 
-        {/* Center image icon */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
           initial={{ opacity: 0 }}
