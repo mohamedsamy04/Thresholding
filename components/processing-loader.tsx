@@ -117,7 +117,6 @@ export default function ProcessingLoader() {
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
         >
-          Applying Threshold Algorithm
         </motion.div>
         <div className="flex items-center justify-center mt-2 space-x-1">
           {[0, 1, 2, 3, 4].map((i) => (
